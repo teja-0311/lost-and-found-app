@@ -4,6 +4,7 @@ import { UserContext } from './UserContext';
 import { Avatar } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios';
+import { Alert } from 'react-native';
 import { API_BASE_URL } from './config';
 export default function DrawerContent({ navigation }) {
   const { user, logout } = useContext(UserContext);
@@ -23,6 +24,40 @@ export default function DrawerContent({ navigation }) {
     await logout();
     navigation.replace('Username');
   };
+
+  const handleDeleteAccount = () => {
+  Alert.alert(
+    "Confirm Deletion",
+    "Are you sure you want to delete your account permanently?",
+    "Your total data will be deleted!!",
+    [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Delete",
+        onPress: async () => {
+          try {
+            const res = await axios.delete(`${API_BASE_URL}/api/auth/delete-user`, {
+              data: { email: user.email }
+            });
+
+            if (res.data.message === 'User deleted successfully') {
+              await logout();
+              navigation.replace('Username');
+            } else {
+              Alert.alert("Error", res.data.message);
+            }
+          } catch (err) {
+            console.error('Delete error:', err);
+            Alert.alert("Error", "Failed to delete account");
+          }
+        },
+        style: 'destructive'
+      }
+    ]
+  );
+};
+
+
 
   return (
     <LinearGradient colors={['#abecd6', '#fbed96']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.drawer}>
@@ -59,6 +94,11 @@ export default function DrawerContent({ navigation }) {
       <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
         <Text style={{ color: '#fff', fontWeight: 'bold' }}>Logout</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress={handleDeleteAccount} style={styles.deleteButton}>
+  <Text style={{ color: '#fff', fontWeight: 'bold' }}>Delete Account</Text>
+</TouchableOpacity>
+
     </LinearGradient>
   );
 }
@@ -82,4 +122,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
   },
+  deleteButton: {
+  marginTop: 10,
+  padding: 14,
+  backgroundColor: '#c62828',
+  borderRadius: 8,
+  alignItems: 'center',
+},
+
 });

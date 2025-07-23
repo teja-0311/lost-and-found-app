@@ -101,4 +101,26 @@ router.post('/verify-otp', async (req, res) => {
   }
 });
 
+// DELETE user account
+router.delete('/delete-user', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  try {
+    const result = await User.deleteOne({ email });
+
+    if (result.deletedCount === 1) {
+      return res.json({ message: "User deleted successfully" });
+    } else {
+      return res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    console.error("Delete error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;
