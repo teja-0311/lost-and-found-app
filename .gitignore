@@ -37,8 +37,7 @@ yarn-error.*
 .env*.local
 .env
 
-#config
-config.js 
+
  
 
 # typescript

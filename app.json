@@ -1,29 +1,14 @@
 {
   "expo": {
-    "name": "lost-found-app",
-    "slug": "lost-found-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
+    "extra": {
+      "apiUrl": "https://lost-and-found-app-kgy7.onrender.com",
+      "cloudinaryUrl": "https://api.cloudinary.com/v1_1/dxnqv0izn/image/upload",
+      "eas": {
+        "projectId": "a1d83436-f1bb-41f4-afbe-ee558990f22e"
+      }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.tejag0311.lostfoundapp"
     }
   }
 }
