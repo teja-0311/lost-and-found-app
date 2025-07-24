@@ -9,6 +9,13 @@
     },
     "android": {
       "package": "com.tejag0311.lostfoundapp"
-    }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a1d83436-f1bb-41f4-afbe-ee558990f22e"
+    },
+    "ios": {}
   }
 }
