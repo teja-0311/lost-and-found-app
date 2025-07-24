@@ -43,10 +43,39 @@ export default function UsernameScreen({ navigation }) {
       <View style={styles.innerContainer}>
         <Text style={[styles.title,{fontStyle:'italic'},{color:'black'},{paddingBottom:100},{fontSize:45}]}>Lost & Found</Text>
         <Text style={[styles.title,{color:'black'}]}>Sign Up / Login</Text>
-        <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={styles.input} />
-        <TextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry style={styles.input} />
-        <TextInput placeholder="Name" value={name} onChangeText={setName} style={styles.input} />
-        <TextInput placeholder="Phone" value={phone} onChangeText={setPhone} style={styles.input} />
+        <TextInput
+  placeholder="Email"
+  placeholderTextColor="#888"
+  value={email}
+  onChangeText={setEmail}
+  style={styles.input}
+/>
+
+<TextInput
+  placeholder="Password"
+  placeholderTextColor="#888"
+  value={password}
+  onChangeText={setPassword}
+  secureTextEntry
+  style={styles.input}
+/>
+
+<TextInput
+  placeholder="Name"
+  placeholderTextColor="#888"
+  value={name}
+  onChangeText={setName}
+  style={styles.input}
+/>
+
+<TextInput
+  placeholder="Phone"
+  placeholderTextColor="#888"
+  value={phone}
+  onChangeText={setPhone}
+  style={styles.input}
+/>
+
         <Button title="Login"  onPress={handleContinue} />
       </View>
     </LinearGradient>
