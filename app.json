@@ -4,7 +4,7 @@
       "apiUrl": "https://lost-and-found-app-6rrr.onrender.com",
       "cloudinaryUrl": "https://api.cloudinary.com/v1_1/dxnqv0izn/image/upload",
       "eas": {
-        "projectId": "a1d83436-f1bb-41f4-afbe-ee558990f22e"
+        "projectId": "05af1401-f8a4-41af-8ed2-d73361a5034b"
       }
     },
     "android": {
@@ -16,6 +16,7 @@
     "updates": {
       "url": "https://u.expo.dev/a1d83436-f1bb-41f4-afbe-ee558990f22e"
     },
-    "ios": {}
+    "ios": {},
+    "owner": "tejag-0311"
   }
 }
